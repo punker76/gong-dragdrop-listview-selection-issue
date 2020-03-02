@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfListViewExtendedSelectionIssue.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfListViewExtendedSelectionIssue"
+        xmlns:dd="urn:gong-wpf-dragdrop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListView ItemsSource="{Binding Items}" 
+                  dd:DragDrop.IsDragSource="True"
+                  SelectionMode="Extended">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox />
+
+                        <TextBlock Text="Item 1" />
+
+                        <Menu>
+                            <MenuItem Header="Menu">
+                                <MenuItem Header="Some Menu Item"></MenuItem>
+                                <MenuItem Header="Some Other Menu Item"></MenuItem>
+                            </MenuItem>
+                        </Menu>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
